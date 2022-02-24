@@ -12,4 +12,16 @@ public class Race {
 		
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getDate() {
+		return this.date;
+	}
+	
+	public List<Horse> getHorses() {
+		return this.horses;
+	}
+	
 }
