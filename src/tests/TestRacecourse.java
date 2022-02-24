@@ -11,14 +11,14 @@ import models.Racecourse;
 class TestRacecourse {
 
 	@Test
-	void testRacecourseNameIsSuccess() {
+	void testRacecourseCreateIsSuccess() {
 		Racecourse myRacecourse = new Racecourse("My Super Racecourse");
 		
 		assertNotEquals("", myRacecourse.getName());
 	}
 
 	@Test
-	void testRacecourseNameIsFailed() {
+	void testRacecourseCreateIsFailed() {
 		Racecourse myRacecourse = new Racecourse("");
 
 		assertEquals("", myRacecourse.getName());
