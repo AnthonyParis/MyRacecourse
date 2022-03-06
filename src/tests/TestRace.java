@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -66,6 +68,31 @@ class TestRace {
 		myRace.addHorse("My Super Horse D");
 		myRace.start(myHorses);
 		
-		assertNotEquals("", myRace.getName());
+		Boolean hasWinner = false;
+		
+		if(myRace.getWinner().getName() == "My Super Horse B") hasWinner = true;
+		else if(myRace.getWinner().getName() == "My Super Horse C") hasWinner = true;
+		else if(myRace.getWinner().getName() == "My Super Horse D") hasWinner = true;
+
+		assertEquals(true, hasWinner);
+	}
+
+	@Test
+	void testRaceStartWithNoHorse() {
+		List<Horse> myHorses = new ArrayList<Horse>();
+		
+		Race myRace = new Race("My Super Race", new Date());
+		myRace.addHorse("My Super Horse B");
+		myRace.addHorse("My Super Horse C");
+		myRace.addHorse("My Super Horse D");
+		myRace.start(myHorses);
+		
+		Boolean hasWinner = false;
+		
+		if(myRace.getWinner().getName() == "My Super Horse B") hasWinner = true;
+		else if(myRace.getWinner().getName() == "My Super Horse C") hasWinner = true;
+		else if(myRace.getWinner().getName() == "My Super Horse D") hasWinner = true;
+
+		assertNotEquals(true, hasWinner);
 	}
 }

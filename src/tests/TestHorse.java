@@ -15,7 +15,7 @@ class TestHorse {
 
 	@Test
 	void testHorseCreateWithNameIsSuccess() {
-		Horse myHorse = new Horse("My Super Horse", 158);
+		Horse myHorse = new Horse("My Super Horse", 15);
 		
 		assertNotEquals("", myHorse.getName());
 	}

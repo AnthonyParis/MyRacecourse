@@ -1,15 +1,18 @@
 package models;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 public class Race {
 
 	private String name = "";
 	private Date date = getDate();
 	private List<String> myHorses = new ArrayList<String>();
+	private Horse winner = null;
 	
 	public Race(String name, Date date) {
 		if(!name.isEmpty()) this.name = name;
@@ -44,7 +47,7 @@ public class Race {
 	}
 	
 	public void start(List<Horse> allHorses) {
-		if(this.myHorses.size() == 0) System.out.println("No Horse");
+		if(this.myHorses.size() == 0 || allHorses.size() == 0) System.out.println("No Horse");
 		else {
 			List<Horse> competitors = new ArrayList<Horse>();
 
@@ -58,8 +61,19 @@ public class Race {
 				}
 			}
 
-			Horse winner = competitors.get((int) (Math.random() * competitors.size()));
-			System.out.println("The Winner is : " + winner.getName() + " (" + winner.getAge() + ")");
+			if(competitors.size() == 0) {
+				System.out.println("No Competitor !");
+				
+				return;
+			}
+			
+			this.winner = competitors.get((int) (Math.random() * competitors.size()));
+			System.out.println("The Winner is : " + this.winner.getName() + " (" + this.winner.getAge() + ")");
 		}
+	}
+	
+	public Horse getWinner() {
+		if(this.winner != null) return this.winner;
+		else return new Horse("", 0);
 	}
 }
