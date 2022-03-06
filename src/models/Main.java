@@ -21,8 +21,8 @@ public class Main {
 
 		boolean exit = false;
 		
-		this.debugSingleRace(); // UNCOMMENT FOR TEST
-		this.debugMultipleRace(); // UNCOMMENT FOR TEST
+		//this.debugSingleRace(); // UNCOMMENT FOR TEST
+		//this.debugMultipleRace(); // UNCOMMENT FOR TEST
 		
 		while(!exit) {
 			this.showMenu();
@@ -34,7 +34,7 @@ public class Main {
 				String horse = this.getHorseName();
 
 				for(Race myRace : this.myRaces) {
-					if(myRace.getName() == race) myRace.addHorse(horse);
+					if(myRace.getName().equals(race)) myRace.addHorse(horse);
 				}
 				
 				System.out.println(horse + " Added to " + race);
